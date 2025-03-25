@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class InsertionSort{
 
-    public static void main(String[] args) {
-        int size = 300_0000;
+    public static void main(String[] args) throws IOException {
+        int size = 1_000_000;
         int[] array = generateRandomArray(size);
         System.out.println("Array generated. Starting sort...");
 
@@ -44,12 +44,13 @@ public class InsertionSort{
     }
 
     // Generate large array with random integers
-    public static int[] generateRandomArray(int size) {
+    public static int[] generateRandomArray(int size) throws IOException {
         Random rand = new Random();
         int[] arr = new int[size];
         for (int i = 0; i < size; i++) {
             arr[i] = rand.nextInt(1_000_000); // values between 0 and 999,999
         }
+        saveArrayToFile(arr, "input.txt");
         return arr;
     }
 
